@@ -12,7 +12,7 @@ CREATE TABLE tb_vinicola(
 	nome VARCHAR(20) NOT NULL,
 	descricao VARCHAR(100),
 	fone VARCHAR(9),
-	email VARCHAR(30),
+	email VARCHAR(30) UNIQUE,
 	regiao_id INT NOT NULL,
 	FOREIGN KEY (regiao_id) references tb_regiao(id)
 );
@@ -34,14 +34,14 @@ CREATE TABLE tb_vinho(
 
 --Seed Database DML
 INSERT INTO dbo.tb_regiao([id],[nome],[localidade_s],[localidade_w],[descricao])VALUES(1,'Vale Central',33.8088,70.7644,'Chile');
-INSERT INTO dbo.tb_regiao([id],[nome],[localidade_s],[localidade_w],[descricao])VALUES(2,'Serra Gaúcha',29.3746,50.8764,'Sul do Brasil');
+INSERT INTO dbo.tb_regiao([id],[nome],[localidade_s],[localidade_w],[descricao])VALUES(2,'Serra GaÃºcha',29.3746,50.8764,'Sul do Brasil');
 
 INSERT INTO dbo.tb_vinicola([id],[nome],[descricao],[fone],[email],[regiao_id])
-VALUES(1,'Santa Rita','localizada no valle del maipo e tem mais de 100 anos de história',null,'santa@gmail.com',1);
+VALUES(1,'Santa Rita','localizada no valle del maipo e tem mais de 100 anos de histÃ³ria',null,'santa@gmail.com',1);
 INSERT INTO dbo.tb_vinicola([id],[nome],[descricao],[fone],[email],[regiao_id])
 VALUES(2,'Santa Carolina',null,'3395-4422','carolina@gmail.com',1);
 INSERT INTO dbo.tb_vinicola([id],[nome],[descricao],[fone],[email],[regiao_id])
-VALUES(3,'Garibaldi','Vinicula situada na serra gaúcha','9822-3344','garibaldi@gmail.com',2);
+VALUES(3,'Garibaldi','Vinicula situada na serra gaÃºcha','9822-3344','garibaldi@gmail.com',2);
 
 INSERT INTO dbo.tb_tipo_vinho([id],[nome])VALUES(1,'Tinto');
 INSERT INTO dbo.tb_tipo_vinho([id],[nome])VALUES(2,'Branco');
