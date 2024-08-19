@@ -55,7 +55,7 @@ create table tb_resultado (
  
 
 -- CURSO HTML
-INSERT INTO tb_curso (id, nome, carga_horaria, valor, nota_prevista, nota_minima) VALUES (1, 'HTML B·sico', 10, 80.0, 100.0, 70.0);
+INSERT INTO tb_curso (id, nome, carga_horaria, valor, nota_prevista, nota_minima) VALUES (1, 'HTML B√°sico', 10, 80.0, 100.0, 70.0);
 
 -- DUAS TURMAS PARA O CURSO HTML
 INSERT INTO tb_turma (id, numero, inicio, vagas, curso_id) VALUES (1, 1, '2017-09-10', 30, 1);
@@ -97,16 +97,16 @@ INSERT INTO tb_resultado (aluno_id, avaliacao_id, nota_obtida) VALUES ('44412312
 INSERT INTO tb_resultado (aluno_id, avaliacao_id, nota_obtida) VALUES ('555098098-55', 4, 35.5);
 
 ----------------------------------------------------------------
---OBS: SCRIPTS DESENVOLVIDOS UTILIZANDO O PADR√O SLQ SERVER 2022 
+--OBS: SCRIPTS DESENVOLVIDOS UTILIZANDO O PADR√ÉO SQL SERVER 2022 
 ----------------------------------------------------------------
 
---Quest„o 1:
+--Quest√£o 1:
 SELECT tb_curso.nome AS curso, tb_turma.numero AS turma, tb_turma.inicio 
 From tb_curso
 INNER JOIN tb_turma ON tb_turma.curso_id = tb_curso.id
 ------------------------------------------------------------------------
 
---Quest„o 2:
+--Quest√£o 2:
 SELECT tb_curso.nome AS curso, tb_turma.numero AS turma, tb_aluno.nome AS aluno, tb_aluno.cpf
 FROM tb_curso
 INNER JOIN tb_turma ON tb_turma.curso_id = tb_curso.id
@@ -115,7 +115,7 @@ INNER JOIN tb_aluno ON tb_matricula.aluno_id = tb_aluno.cpf
 ORDER BY turma_id ASC
 -------------------------------------------------------------------------
 
- --Quest„o 3:
+ --Quest√£o 3:
  SELECT tb_avaliacao.data, 
  CAST(tb_avaliacao.nota AS DECIMAL (10,1)) AS nota, tb_aluno.nome, 
  CAST(tb_resultado.nota_obtida AS DECIMAL (10,1)) AS nota_obtida, 
@@ -126,7 +126,7 @@ ORDER BY turma_id ASC
  ORDER BY tb_avaliacao.data DESC, tb_aluno.nome ASC
  ------------------------------------------------------------------------
 
- --Quest„o 4:
+ --Quest√£o 4:
 SELECT tb_aluno.nome AS nome, SUM(CAST((tb_resultado.nota_obtida) AS DECIMAL (10,1))) AS total
 FROM tb_aluno
 INNER JOIN tb_resultado ON tb_aluno.cpf = tb_resultado.aluno_id
